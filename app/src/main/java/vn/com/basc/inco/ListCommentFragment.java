@@ -10,35 +10,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import vn.com.basc.inco.adapter.MyTaskRecyclerViewAdapter;
-import vn.com.basc.inco.model.TaskContent;
-import vn.com.basc.inco.model.TaskContent.TaskItem;
+import vn.com.basc.inco.dummy.DummyContent;
+import vn.com.basc.inco.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnTaskListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnListCommentFragmentInteractionListener}
  * interface.
  */
-public class TaskFragment extends Fragment {
+public class ListCommentFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnTaskListFragmentInteractionListener mListener;
+    private OnListCommentFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public TaskFragment() {
+    public ListCommentFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static TaskFragment newInstance(int columnCount) {
-        TaskFragment fragment = new TaskFragment();
+    public static ListCommentFragment newInstance(int columnCount) {
+        ListCommentFragment fragment = new ListCommentFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -57,7 +56,7 @@ public class TaskFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_task_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_comments_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -68,7 +67,7 @@ public class TaskFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyTaskRecyclerViewAdapter(TaskContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyCommentsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
@@ -77,11 +76,11 @@ public class TaskFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnTaskListFragmentInteractionListener) {
-            mListener = (OnTaskListFragmentInteractionListener) context;
+        if (context instanceof OnListCommentFragmentInteractionListener) {
+            mListener = (OnListCommentFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnTaskListFragmentInteractionListener");
+                    + " must implement OnListCommentFragmentInteractionListener");
         }
     }
 
@@ -101,8 +100,8 @@ public class TaskFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnTaskListFragmentInteractionListener {
+    public interface OnListCommentFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onTaskListFragmentInteraction(TaskItem item);
+        void onListCommentFragmentInteraction(DummyItem item);
     }
 }

@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import vn.com.basc.inco.ProjectFragment.OnListFragmentInteractionListener;
 import vn.com.basc.inco.TaskFragment.OnTaskListFragmentInteractionListener;
-import vn.com.basc.inco.dummy.DummyContent;
+import vn.com.basc.inco.model.TaskContent;
 import vn.com.basc.inco.model.ProjectContent;
 
 public class MainActivity extends AppCompatActivity
@@ -142,7 +142,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onTaskListFragmentInteraction(DummyContent.DummyItem item) {
-        
+    public void onTaskListFragmentInteraction(TaskContent.TaskItem item) {
+        Intent intent = new Intent(MainActivity.this, ListCommentActivity.class);
+        startActivity(intent);
     }
 }

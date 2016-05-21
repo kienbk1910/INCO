@@ -6,22 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import vn.com.basc.inco.TaskFragment.OnTaskListFragmentInteractionListener;
+import vn.com.basc.inco.ListCommentFragment.OnListCommentFragmentInteractionListener;
 import vn.com.basc.inco.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnTaskListFragmentInteractionListener}.
+ * specified {@link OnListCommentFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecyclerViewAdapter.ViewHolder> {
+public class MyCommentsRecyclerViewAdapter extends RecyclerView.Adapter<MyCommentsRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
-    private final TaskFragment.OnTaskListFragmentInteractionListener mListener;
+    private final OnListCommentFragmentInteractionListener mListener;
 
-    public MyTaskRecyclerViewAdapter(List<DummyItem> items, TaskFragment.OnTaskListFragmentInteractionListener listener) {
+    public MyCommentsRecyclerViewAdapter(List<DummyItem> items, OnListCommentFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -29,7 +29,7 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_task, parent, false);
+                .inflate(R.layout.fragment_comments, parent, false);
         return new ViewHolder(view);
     }
 
@@ -45,7 +45,7 @@ public class MyTaskRecyclerViewAdapter extends RecyclerView.Adapter<MyTaskRecycl
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onTaskListFragmentInteraction(holder.mItem);
+                    mListener.onListCommentFragmentInteraction(holder.mItem);
                 }
             }
         });

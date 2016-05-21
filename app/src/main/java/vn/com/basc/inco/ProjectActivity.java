@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import android.support.design.widget.TabLayout;
 
-import vn.com.basc.inco.dummy.DummyContent;
+import vn.com.basc.inco.model.TaskContent;
 
 public class ProjectActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener,TaskFragment.OnTaskListFragmentInteractionListener {
 
@@ -118,7 +118,7 @@ public class ProjectActivity extends AppCompatActivity implements TabLayout.OnTa
     }
 
     @Override
-    public void onTaskListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onTaskListFragmentInteraction(TaskContent.TaskItem item) {
 
     }
 
